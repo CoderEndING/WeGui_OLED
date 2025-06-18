@@ -1,8 +1,8 @@
-#ifndef OLED_WEGUI_MENU_MLIST_H
-#define OLED_WEGUI_MENU_MLIST_H
+#ifndef LCD_WEGUI_MENU_MLIST_H
+#define LCD_WEGUI_MENU_MLIST_H
 
 
-#include "oled_wegui_driver.h"
+#include "lcd_WeGui_driver.h"
 
 typedef struct mList_par
 {
@@ -30,14 +30,22 @@ typedef struct mList_par
 
 
 
-void wegui_mList_Init();
-void wegui_mlist_keyUp(Key_return_t i);
-void wegui_mlist_keyDown(Key_return_t i);
-void wegui_mlist_keyOk(Key_return_t i);
-void wegui_mlist_keyBack(Key_return_t i);
-void wegui_mlist_keyLeft(Key_return_t i);
-void wegui_mlist_keyRight(Key_return_t i);
-void wegui_show_mList(uint16_t farmes);
+
+//返回上一级菜单
+void WeGui_mlist_Back_menu(void);
+//进入光标位置菜单
+void WeGui_mlist_Enter_cursor(void);
+//光标前一个
+void WeGui_mlist_cursor_Prev(void);
+//光标下一个
+void WeGui_mlist_cursor_Next(void);
+
+
+
+//初始化
+void WeGui_mList_Init(void);
+//显示驱动
+void WeGui_show_mList(uint16_t farmes);
 
 
 

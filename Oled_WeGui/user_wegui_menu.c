@@ -1,5 +1,5 @@
 
-#include "user_wegui_menu.h"
+#include "user_WeGui_menu.h"
 
 
 /*************************************************
@@ -351,7 +351,7 @@ menu_t m_wDemo_wMessage_Tip=
 {
 	.fatherMenu=&m_wDemo,//父菜单
 	.subMenu=0x00,//(首个)子菜单
-	.nextMenu=&m_wDemo_wMessage_ADC,//同级下一个菜单
+	.nextMenu=&m_wDemo_wCheckbox,//同级下一个菜单
 	.titel=
 	{
 		.str_zh_CN=(uint8_t *)" ",//中文标题 wMessage可不设置
@@ -372,6 +372,32 @@ menu_t m_wDemo_wMessage_Tip=
 
 
 //-------------------m.m_wDemo_wMessage------------------------
+
+extern uint8_t adc_en;
+menu_t m_wDemo_wCheckbox=
+{
+	.fatherMenu=&m_wDemo,//父菜单
+	.subMenu=0x00,//(首个)子菜单
+	.nextMenu=&m_wDemo_wMessage_ADC,//同级下一个菜单
+	.titel=
+	{
+		.str_zh_CN=(uint8_t *)" ",//中文标题 wMessage可不设置
+	  .str_en_US=(uint8_t *)" ",//英文标题 wMessage可不设置
+	},
+	.discribe=
+	{
+		.str_zh_CN=(uint8_t *)"wCheckBox",//中文描述
+	  .str_en_US=(uint8_t *)"wCheckBox",//英文描述
+	},
+	.menuType=wCheckBox,//菜单类型
+	.menuPar.wCheckBox_Par =
+	{
+		.pstr=&adc_en,         //复选框控制的数据指针
+		.Change_Value=0x00,//值被修改 执行一次
+	},
+};
+
+
 menu_t m_wDemo_wMessage_ADC=
 {
 	.fatherMenu=&m_wDemo,//父菜单
@@ -400,7 +426,7 @@ menu_t m_wDemo_wMessage_ADC=
 	},
 };
 
-void m_wDemo_wMessage_Pres_func();
+void m_wDemo_wMessage_Pres_func(void);
 menu_t m_wDemo_wMessage_Pres=
 {
 	.fatherMenu=&m_wDemo,//父菜单
@@ -429,12 +455,12 @@ menu_t m_wDemo_wMessage_Pres=
 	},
 };
 
-void m_wDemo_wMessage_Pres2_func();
+void m_wDemo_wMessage_Pres2_func(void);
 menu_t m_wDemo_wMessage_Pres2=
 {
 	.fatherMenu=&m_wDemo,//父菜单
 	.subMenu=0x00,//(首个)子菜单
-	.nextMenu=&m_wDemo_wCheckbox,//同级下一个菜单
+	.nextMenu=&m_wDemo_wSlider1,//同级下一个菜单
 	.titel=
 	{
 		.str_zh_CN=(uint8_t *)" ",//中文标题 wMessage可不设置
@@ -459,29 +485,7 @@ menu_t m_wDemo_wMessage_Pres2=
 };
 
 
-extern uint8_t adc_en;
-menu_t m_wDemo_wCheckbox=
-{
-	.fatherMenu=&m_wDemo,//父菜单
-	.subMenu=0x00,//(首个)子菜单
-	.nextMenu=&m_wDemo_wSlider1,//同级下一个菜单
-	.titel=
-	{
-		.str_zh_CN=(uint8_t *)" ",//中文标题 wMessage可不设置
-	  .str_en_US=(uint8_t *)" ",//英文标题 wMessage可不设置
-	},
-	.discribe=
-	{
-		.str_zh_CN=(uint8_t *)"wCheckBox",//中文描述
-	  .str_en_US=(uint8_t *)"wCheckBox",//英文描述
-	},
-	.menuType=wCheckBox,//菜单类型
-	.menuPar.wCheckBox_Par =
-	{
-		.pstr=&adc_en,         //复选框控制的数据指针
-		.Change_Value=0x00,//值被修改 执行一次
-	},
-};
+
 
 int16_t slider_demo_value=-5;
 menu_t m_wDemo_wSlider1 =
@@ -542,13 +546,6 @@ menu_t m_wDemo_wSlider2 =
 
 
 
-
-
-
-
-
-
-
 //-------------------m.m_App_Setting------------------------
 menu_t m_Setting_Display =
 {
@@ -581,12 +578,12 @@ menu_t m_Setting_Time =
 	.nextMenu=&m_Setting_Speaker,//同级下一个菜单
 	.titel=
 	{
-		.str_zh_CN=(uint8_t *)"时间&闹钟",//中文标题
+		.str_zh_CN=(uint8_t *)"时间",//中文标题
 	  .str_en_US=(uint8_t *)"Time&Clock",//英文标题
 	},
 	.discribe=
 	{
-		.str_zh_CN=(uint8_t *)"2.时间&闹钟",//中文描述
+		.str_zh_CN=(uint8_t *)"2.时间",//中文描述
 	  .str_en_US=(uint8_t *)"2.Time&Clock",//英文描述
 	},
 	.menuType=mList,//菜单类型
@@ -723,7 +720,7 @@ menu_t m_Setting_About=
 
 
 //-------------------m.Setting.Langauge语言------------------------
-void Set_langauge_English();
+void Set_langauge_English(void);
 menu_t m_Setting_Langauge_English =
 {
 	.fatherMenu=&m_Setting_Langauge,//父菜单
@@ -753,7 +750,7 @@ menu_t m_Setting_Langauge_English =
 	},
 };
 
-void Set_langauge_Chinese();
+void Set_langauge_Chinese(void);
 menu_t m_Setting_Langauge_Chinese =
 {
 	.fatherMenu=&m_Setting_Langauge,//父菜单
@@ -784,7 +781,7 @@ menu_t m_Setting_Langauge_Chinese =
 	
 };
 //-------------------m.Setting.Display显示------------------------
-void update_wegui_screen_brightness();
+void update_WeGui_screen_brightness(void);
 menu_t m_Setting_Display_Brightness =
 {
 	.fatherMenu=&m_Setting_Display,//父菜单
@@ -804,9 +801,9 @@ menu_t m_Setting_Display_Brightness =
 	.menuPar.wSliderTip_Par =
 	{
 		.Push_tip_func=0x00,                                //控件进入 执行一次
-		.Change_Value_func=update_wegui_screen_brightness,  //值被修改 执行一次
+		.Change_Value_func=update_WeGui_screen_brightness,  //值被修改 执行一次
 		.End_tip_func=0x00,                                 //控件退出 执行一次
-		.pstr = &wegui.setting.brightness,
+		.pstr = &WeGui.setting.brightness,
 		.min = 0,
 		.max = 255,
 	},
@@ -834,7 +831,7 @@ menu_t m_Setting_Display_ScreenFPS =
 		.Push_tip_func=0x00,      //控件进入 执行一次
 		.Change_Value_func=0x00,  //值被修改 执行一次
 		.End_tip_func=0x00,       //控件退出 执行一次
-		.pstr = &wegui.setting.screen_fps_ms,
+		.pstr = &WeGui.setting.screen_fps_ms,
 		.min = 1,
 		.max = 100,
 	},
@@ -862,7 +859,7 @@ menu_t m_Setting_UI_Speed =
 		.Push_tip_func=0x00,      //控件进入 执行一次
 		.Change_Value_func=0x00,  //值被修改 执行一次
 		.End_tip_func=0x00,       //控件退出 执行一次
-		.pstr = &wegui.setting.ui_fps_ms,
+		.pstr = &WeGui.setting.ui_fps_ms,
 		.min = 1,
 		.max = 100,
 	},

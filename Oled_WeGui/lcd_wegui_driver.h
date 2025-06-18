@@ -1,8 +1,8 @@
-#ifndef _OLED_WEGUI_DRIVER_H_
-#define _OLED_WEGUI_DRIVER_H_
+#ifndef _LCD_WEGUI_DRIVER_H_
+#define _LCD_WEGUI_DRIVER_H_
 
-#include "oled_driver.h"
-#include "oled_res.h"
+#include "lcd_driver.h"
+#include "lcd_res.h"
 
 
 
@@ -59,9 +59,9 @@ typedef struct langauge_string_t
 {
 	/*const*/ uint8_t * str_zh_CN;
 	/*const*/ uint8_t * str_en_US;
-}wegui_string_t;
+}WeGui_string_t;
 //--------------------设置--------------------
-typedef struct wegui_t_setting
+typedef struct WeGui_t_setting
 {
 	langage_t langauge;    //系统语言
 	int16_t brightness;   //系统亮度
@@ -73,7 +73,7 @@ typedef struct wegui_t_setting
 	
 }setting_t;
 //-----------------系统信息------------------
-typedef struct wegui_sysInfo
+typedef struct WeGui_sysInfo
 {
 	uint16_t info_fps;//CPU负载
 	uint16_t cpu_load;//实时刷新率
@@ -134,7 +134,7 @@ typedef struct wMessage_Propertys
 {
 	void (*Press_func)();              //按下执行一次
 	uint8_t* Value_string;             //末尾显示的值 0x00不显示
-	wegui_string_t Tip_string;         //提示框字符串
+	WeGui_string_t Tip_string;         //提示框字符串
 }wMessage_Par_t;	
 
 
@@ -155,8 +155,8 @@ typedef struct menu_t
 	struct menu_t * fatherMenu;//父菜单
 	struct menu_t * subMenu;//(首个)子菜单
 	struct menu_t * nextMenu;//同级下一个菜单
-	/*const*/ wegui_string_t titel;//多语言标题
-	/*const*/ wegui_string_t discribe;//多语言描述
+	/*const*/ WeGui_string_t titel;//多语言标题
+	/*const*/ WeGui_string_t discribe;//多语言描述
 	menuType_t menuType;//菜单类型
 	menuType_Par_t menuPar;//菜单属性
 	
@@ -179,7 +179,7 @@ typedef struct menu_t
 #define BAR_WIDTH (SCREEN_WIDTH-32) //进度条的宽度
 #define BAR_HIGHT 3					//进度条的高度
 
-#define BAR_TIP_HIGHT (wegui.tip.fonts_high*string_yline + BAR_TIP_TOP_SCAPE + BAR_TO_CHAR_SCAPE + BAR_HIGHT + BAR_TIP_BOT_SCAPE)	//弹窗高度
+#define BAR_TIP_HIGHT (WeGui.tip.fonts_high*string_yline + BAR_TIP_TOP_SCAPE + BAR_TO_CHAR_SCAPE + BAR_HIGHT + BAR_TIP_BOT_SCAPE)	//弹窗高度
 #define BAR_TIP_WIDTH (BAR_WIDTH + BAR_TO_CHAR_SCAPE*2) //弹窗宽度, 双数优先
 typedef enum tip_type
 {
@@ -198,7 +198,7 @@ typedef enum tip_state
 	DISPLAYING,//弹窗正在展示
 	EXITING,//弹窗正在退出
 }tip_state_t;
-typedef struct wegui_tip
+typedef struct WeGui_tip
 {
 	tip_state_t state;//有无弹窗
 	tip_type_t type;//当前弹窗的类型
@@ -221,17 +221,17 @@ typedef struct wegui_tip
 	void (*Change_Value)();
 	void (*Finish_Value)();
 	
-}wegui_tip_t;
+}WeGui_tip_t;
 
 
 //------------------主结构体------------------
-typedef struct wegui_t
+typedef struct WeGui_t
 {
 	menu_t *menu;//菜单
-	wegui_tip_t tip;//弹窗
+	WeGui_tip_t tip;//弹窗
 	setting_t setting;
 	sysInfo_t sysInfo;
-}wegui_t;
+}WeGui_t;
 
 
 
@@ -253,24 +253,25 @@ uint8_t *itoa(int16_t num,uint8_t *str,uint8_t radix);
 ----------------------------------------------------------------*/
 uint8_t Get_submenu_sum(menu_t* m);//获取菜单中子菜单的总数
 /*--------------------------------------------------------------
-  * 名称: uint8_t* wegui_get_string(wegui_string_t object,langage_t langauge)
+  * 名称: uint8_t* WeGui_get_string(WeGui_string_t object,langage_t langauge)
   * 传入1: object 语言包
   * 传入2: langauge 语言
   * 功能: 返回"语言包"里对应的"langauge语言"字符串指针,
 ----------------------------------------------------------------*/
-uint8_t* wegui_get_string(wegui_string_t object,langage_t langauge);
+uint8_t* WeGui_get_string(WeGui_string_t object,langage_t langauge);
 
 
 
 
-void wegui_enter_menu(menu_t* p);
-void wegui_key_interface_stick(uint16_t ms);
+void WeGui_enter_menu(menu_t* p);
+void WeGui_key_interface_stick(uint16_t ms);
 
-void wegui_loop_func();//放到主循环
-void OLED_Wegui_Init();
+void WeGui_loop_func(void);//放到主循环
+void WeGui_1ms_Stick(void);//放到1ms中断
+void OLED_WeGui_Init(void);
 
 
-extern wegui_t wegui;
-extern uint16_t wegui_1ms_stick;
+extern WeGui_t WeGui;
+extern uint16_t WeGui_1ms_stick;
 
 #endif

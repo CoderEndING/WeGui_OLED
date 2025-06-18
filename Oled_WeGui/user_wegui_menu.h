@@ -1,7 +1,7 @@
 #ifndef _USER_WEGUI_MENU_H_
 #define _USER_WEGUI_MENU_H_
 
-#include "oled_wegui_driver.h"
+#include "lcd_WeGui_driver.h"
 
 extern menu_t m_main;
 extern menu_t m_App_Game;

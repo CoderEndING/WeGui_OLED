@@ -1,5 +1,5 @@
-#ifndef _OLED_WEGUI_RES_H_
-#define _OLED_WEGUI_RES_H_
+#ifndef _OLED_WeGui_RES_H_
+#define _OLED_WeGui_RES_H_
 
 
 #include "stdint.h"

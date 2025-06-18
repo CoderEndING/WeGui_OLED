@@ -1,5 +1,5 @@
 #include "sh1108.h"
-#include "oled_wegui_driver.h"
+#include "lcd_WeGui_driver.h"
 
 
 //默认8位IIC接口地址为:0x78
@@ -15,12 +15,12 @@
 void SH1108_Set_Address_x(unsigned char x)
 {
 	//方式1:单字节发送
-	OLED_send_1Cmd((x>>4) | 0x10);//高4字节
-	OLED_send_1Cmd(x&0x0f);//低4字节
+	LCD_Send_1Cmd((x>>4) | 0x10);//高4字节
+	LCD_Send_1Cmd(x&0x0f);//低4字节
 	
 	//方式2:连续发送
 	//uint8_t i[]={(x>>4),(x&0x0f)};
-	//OLED_send_numCmd(i,2);
+	//LCD_Send_nCmd(i,2);
 }
 
 /*--------------------------------------------------------------
@@ -33,12 +33,12 @@ void SH1108_Set_Address_x(unsigned char x)
 void SH1108_Set_Address_ypage(unsigned char page)
 {
 	//方式1:单字节发送
-	OLED_send_1Cmd(0xb0);
-	OLED_send_1Cmd(page);
+	LCD_Send_1Cmd(0xb0);
+	LCD_Send_1Cmd(page);
 	
 	//方式2:连续发送
 	//uint8_t i[]={0xb0,page};
-	//OLED_send_numCmd(i,2);
+	//LCD_Send_nCmd(i,2);
 }
 
 /*--------------------------------------------------------------
@@ -56,7 +56,7 @@ void SH1108_Set_Address_x_ypage(unsigned char x,unsigned char page)
 	
 	//方式2:连续发送
 	uint8_t i[]={((x>>4) | 0x10),(x&0x0f),0xb0,page};
-	OLED_send_numCmd(i,4);
+	LCD_Send_nCmd(i,4);
 }
 
 
@@ -76,43 +76,43 @@ void SH1108_Clear()
 		SH1108_Set_Address_x(0);
 		for(x=0;x<160;x++)
 		{
-			//OLED_send_1Data(0x00);
-			OLED_send_1Data(0xff);
+			//LCD_Send_1Dat(0x00);
+			LCD_Send_1Dat(0xff);
 		}
 	}
 }
 
 //void SH1108_Init(void)
 //{
-//  OLED_send_1Cmd(0xAE); /*display off*/ 
-//  OLED_send_1Cmd(0x00); /*set lower column address*/ 
-//  OLED_send_1Cmd(0x10); /*set higher column address*/
-//	OLED_send_1Cmd(0xB0); /*set page address*/ 
-//	OLED_send_1Cmd(0x40); /*set display start lines*/ 
-//	OLED_send_1Cmd(0x81); /*contract control*/ 
-//	OLED_send_1Cmd(0x88); /*4d*/ 
-//	OLED_send_1Cmd(0x82); /* iref resistor set and adjust ISEG*/ 
-//	OLED_send_1Cmd(0x00); 
-//	OLED_send_1Cmd(0xA1); /*set segment remap 0xA0*/ 
-//	OLED_send_1Cmd(0xA2); /*set seg pads hardware configuration*/ 
-//	OLED_send_1Cmd(0xA4); /*Disable Entire Display On (0xA4/0xA5)*/ 
-//	OLED_send_1Cmd(0xA6); /*normal / reverse*/ 
-//	OLED_send_1Cmd(0xA8); /*multiplex ratio*/ 
-//	OLED_send_1Cmd(0x3F); /*duty = 1/64*/ 
-//	OLED_send_1Cmd(0xC8); /*Com scan direction 0XC0*/ 
-//	OLED_send_1Cmd(0xD3); /*set display offset*/ 
-//	OLED_send_1Cmd(0x00); /* */ 
-//	OLED_send_1Cmd(0xD5); /*set osc division*/ 
-//	OLED_send_1Cmd(0xa0); 
-//	OLED_send_1Cmd(0xD9); /*set pre-charge period*/ 
-//	OLED_send_1Cmd(0x22); 
-//	OLED_send_1Cmd(0xdb); /*set vcomh*/ 
-//	OLED_send_1Cmd(0x40); 
-//	OLED_send_1Cmd(0x31); /* Set pump 7.4v */ 
-//	OLED_send_1Cmd(0xad); /*set charge pump enable*/ 
-//	OLED_send_1Cmd(0x8b); /*Set DC-DC enable (0x8a=disable; 0x8b=enable) */ 
+//  LCD_Send_1Cmd(0xAE); /*display off*/ 
+//  LCD_Send_1Cmd(0x00); /*set lower column address*/ 
+//  LCD_Send_1Cmd(0x10); /*set higher column address*/
+//	LCD_Send_1Cmd(0xB0); /*set page address*/ 
+//	LCD_Send_1Cmd(0x40); /*set display start lines*/ 
+//	LCD_Send_1Cmd(0x81); /*contract control*/ 
+//	LCD_Send_1Cmd(0x88); /*4d*/ 
+//	LCD_Send_1Cmd(0x82); /* iref resistor set and adjust ISEG*/ 
+//	LCD_Send_1Cmd(0x00); 
+//	LCD_Send_1Cmd(0xA1); /*set segment remap 0xA0*/ 
+//	LCD_Send_1Cmd(0xA2); /*set seg pads hardware configuration*/ 
+//	LCD_Send_1Cmd(0xA4); /*Disable Entire Display On (0xA4/0xA5)*/ 
+//	LCD_Send_1Cmd(0xA6); /*normal / reverse*/ 
+//	LCD_Send_1Cmd(0xA8); /*multiplex ratio*/ 
+//	LCD_Send_1Cmd(0x3F); /*duty = 1/64*/ 
+//	LCD_Send_1Cmd(0xC8); /*Com scan direction 0XC0*/ 
+//	LCD_Send_1Cmd(0xD3); /*set display offset*/ 
+//	LCD_Send_1Cmd(0x00); /* */ 
+//	LCD_Send_1Cmd(0xD5); /*set osc division*/ 
+//	LCD_Send_1Cmd(0xa0); 
+//	LCD_Send_1Cmd(0xD9); /*set pre-charge period*/ 
+//	LCD_Send_1Cmd(0x22); 
+//	LCD_Send_1Cmd(0xdb); /*set vcomh*/ 
+//	LCD_Send_1Cmd(0x40); 
+//	LCD_Send_1Cmd(0x31); /* Set pump 7.4v */ 
+//	LCD_Send_1Cmd(0xad); /*set charge pump enable*/ 
+//	LCD_Send_1Cmd(0x8b); /*Set DC-DC enable (0x8a=disable; 0x8b=enable) */ 
 //	SH1108_Clear();
-//	OLED_send_1Cmd(0xAF);
+//	LCD_Send_1Cmd(0xAF);
 //}
 
 void SH1108_Init(void)
@@ -182,7 +182,7 @@ void SH1108_Init(void)
 			//清屏
 			SH1108_Clear();
 				
-				OLED_delay_ms(200);
+				LCD_delay_ms(200);
 			SH1108_Display_On();	
 
 }
