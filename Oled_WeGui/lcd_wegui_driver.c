@@ -8,7 +8,7 @@
 
 
 	
-uint16_t WeGui_1ms_stick=0;
+uint16_t wegui_stick=0;
 WeGui_t WeGui;
 
 
@@ -347,8 +347,8 @@ void WeGui_loop_func()
 	static uint16_t ui_time_count  = 0; 
 	static uint16_t fps_time_count = 0; 
 	
-	stick = WeGui_1ms_stick;
-	WeGui_1ms_stick = 0;
+	stick = wegui_stick;
+	wegui_stick = 0;
 	
 	WeGui_Interface_stick(stick);//按键处理
 	
@@ -417,7 +417,7 @@ void WeGui_loop_func()
 		WeGui_update_info(fps_time_count);//在LCD_Refresh()前调用,可显示更新系统资源信息
 		//------------------------刷屏--------------------------
 		LCD_Refresh();
-		WeGui.sysInfo.cpu_time = WeGui_1ms_stick ;//更新"刷屏一次cpu占用时间"
+		WeGui.sysInfo.cpu_time = wegui_stick ;//更新"刷屏一次cpu占用时间"
 		WeGui.sysInfo.fps_time = fps_time_count ; //更新"两次刷屏间隔时间"
 		
 		
@@ -486,10 +486,10 @@ void WeGui_Hello_Word()
 	WeGui_Push_Message_tip(2, string, 3000);//推送提示信息, (推送y位置, 提示内容字符串, 展示时间ms)
 }
 
-void WeGui_1ms_Stick()
+void wegui_1ms_stick()
 {
-	if(WeGui_1ms_stick < 65535)
-		WeGui_1ms_stick++;
+	if(wegui_stick < 65535)
+		wegui_stick++;
 }
 
 void OLED_WeGui_Init()
@@ -516,5 +516,5 @@ void OLED_WeGui_Init()
 	WeGui_Hello_Word();
 	
 	
-	WeGui_1ms_stick = 0;
+	wegui_stick = 0;
 }

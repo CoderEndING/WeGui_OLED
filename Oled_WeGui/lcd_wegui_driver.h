@@ -267,11 +267,11 @@ void WeGui_enter_menu(menu_t* p);
 void WeGui_key_interface_stick(uint16_t ms);
 
 void WeGui_loop_func(void);//放到主循环
-void WeGui_1ms_Stick(void);//放到1ms中断
+void wegui_1ms_stick(void);//放到1ms中断
 void OLED_WeGui_Init(void);
 
 
 extern WeGui_t WeGui;
-extern uint16_t WeGui_1ms_stick;
+extern uint16_t wegui_stick;
 
 #endif

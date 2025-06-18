@@ -2,7 +2,7 @@
 #define _STM32F103_WEGUI_PORT_H_
 
 #include "stm32f10x.h"
-#include "oled_wegui_driver.h"
+#include "lcd_wegui_driver.h"
 
 
 
@@ -191,7 +191,7 @@ extern mykey_t key_ok;
 extern mykey_t key_back;
 
 void wegui_port_Init();
-void wegui_1ms_Stick();//放到1ms中断
+void wegui_1ms_stick();//放到1ms中断
 Key_return_t Keysw_det(mykey_t *p ,uint8_t pin_state,uint16_t ms_stick);
 
 

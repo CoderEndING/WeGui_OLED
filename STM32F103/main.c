@@ -77,16 +77,16 @@ int main(void)
 	startup_init();
 	
 	//本框架"Driver"部分为高效率点阵OLED驱动,类与U8G2,但速度比U8G2快8倍,可单独移植
-	OLED_Driver_Init();
+	lcd_driver_Init();
 	
 	//本框架Wegui部分为图形动画ui,处理多级菜单,过度动画等
-	OLED_Wegui_Init();
+	OLED_WeGui_Init();
 
 	sys1ms_stick = 0;
 	
 	while (1)
 	{
-		wegui_loop_func();//wegui循环驱动
+		WeGui_loop_func();//wegui循环驱动
 		
 		if(sys1ms_stick)//1ms动作
 		{

@@ -1616,49 +1616,49 @@
           <GroupName>Oled_Wegui_Port</GroupName>
           <Files>
             <File>
-              <FileName>oled_wegui_Config.h</FileName>
+              <FileName>lcd_wegui_Config.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Oled_Port\oled_wegui_Config.h</FilePath>
+              <FilePath>..\Oled_Port\lcd_wegui_Config.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f103_wegui_port.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Oled_Port\stm32f103_wegui_port.h</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f103_wegui_port.c</FileName>
+              <FileName>stm32f103_wegui_6key_port.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Oled_Port\stm32f103_wegui_port.c</FilePath>
+              <FilePath>..\Oled_Port\stm32f103_wegui_6key_port.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f103_oled_soft_3spi_port.c</FileName>
+              <FileName>stm32f103_wegui_4key_port.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Oled_Port\stm32f103_oled_soft_3spi_port.c</FilePath>
+              <FilePath>..\Oled_Port\stm32f103_wegui_4key_port.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f103_oled_soft_4spi_port.c</FileName>
+              <FileName>stm32f103_lcd_soft_3spi_port.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Oled_Port\stm32f103_oled_soft_4spi_port.c</FilePath>
+              <FilePath>..\Oled_Port\stm32f103_lcd_soft_3spi_port.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f103_oled_hard_4spi_port.c</FileName>
+              <FileName>stm32f103_lcd_soft_4spi_port.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Oled_Port\stm32f103_oled_hard_4spi_port.c</FilePath>
+              <FilePath>..\Oled_Port\stm32f103_lcd_soft_4spi_port.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f103_oled_dma_4spi_port.c</FileName>
+              <FileName>stm32f103_lcd_hard_4spi_port.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Oled_Port\stm32f103_oled_dma_4spi_port.c</FilePath>
+              <FilePath>..\Oled_Port\stm32f103_lcd_hard_4spi_port.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f103_oled_soft_iic_port.c</FileName>
+              <FileName>stm32f103_lcd_dma_4spi_port.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Oled_Port\stm32f103_oled_soft_iic_port.c</FilePath>
+              <FilePath>..\Oled_Port\stm32f103_lcd_dma_4spi_port.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f103_oled_hard_iic_port.c</FileName>
+              <FileName>stm32f103_lcd_soft_iic_port.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Oled_Port\stm32f103_oled_hard_iic_port.c</FilePath>
+              <FilePath>..\Oled_Port\stm32f103_lcd_soft_iic_port.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f103_lcd_hard_iic_port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Oled_Port\stm32f103_lcd_hard_iic_port.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1671,6 +1671,11 @@
               <FilePath>..\..\Oled_Driver\sh1106.c</FilePath>
             </File>
             <File>
+              <FileName>sh1107.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Oled_Driver\sh1107.c</FilePath>
+            </File>
+            <File>
               <FileName>sh1115.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Oled_Driver\sh1115.c</FilePath>
@@ -1679,6 +1684,11 @@
               <FileName>sh1108.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Oled_Driver\sh1108.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssd1312.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Oled_Driver\ssd1312.c</FilePath>
             </File>
             <File>
               <FileName>ssd1306.c</FileName>
@@ -1691,19 +1701,44 @@
               <FilePath>..\..\Oled_Driver\ssd1315.c</FilePath>
             </File>
             <File>
-              <FileName>oled_driver.c</FileName>
+              <FileName>ssd1327.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Oled_Driver\oled_driver.c</FilePath>
+              <FilePath>..\..\Oled_Driver\ssd1327.c</FilePath>
             </File>
             <File>
-              <FileName>oled_res.c</FileName>
+              <FileName>st7735.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Oled_Driver\oled_res.c</FilePath>
+              <FilePath>..\..\Oled_Driver\st7735.c</FilePath>
             </File>
             <File>
-              <FileName>oled_res.h</FileName>
+              <FileName>st7796s.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Oled_Driver\st7796s.c</FilePath>
+            </File>
+            <File>
+              <FileName>st7789vw.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Oled_Driver\st7789vw.c</FilePath>
+            </File>
+            <File>
+              <FileName>gc9a01.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Oled_Driver\gc9a01.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd_driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Oled_Driver\lcd_driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd_res.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Oled_Driver\lcd_res.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd_res.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\..\Oled_Driver\oled_res.h</FilePath>
+              <FilePath>..\..\Oled_Driver\lcd_res.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1711,14 +1746,9 @@
           <GroupName>Oled_WeGui</GroupName>
           <Files>
             <File>
-              <FileName>oled_wegui_driver.c</FileName>
+              <FileName>lcd_wegui_menu_mlist.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Oled_WeGui\oled_wegui_driver.c</FilePath>
-            </File>
-            <File>
-              <FileName>oled_wegui_driver.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Oled_WeGui\oled_wegui_driver.h</FilePath>
+              <FilePath>..\..\Oled_WeGui\lcd_wegui_menu_mlist.c</FilePath>
             </File>
             <File>
               <FileName>user_wegui_menu.c</FileName>
@@ -1726,14 +1756,14 @@
               <FilePath>..\..\Oled_WeGui\user_wegui_menu.c</FilePath>
             </File>
             <File>
-              <FileName>oled_wegui_menu_mlist.c</FileName>
+              <FileName>lcd_wegui_driver.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Oled_WeGui\oled_wegui_menu_mlist.c</FilePath>
+              <FilePath>..\..\Oled_WeGui\lcd_wegui_driver.c</FilePath>
             </File>
             <File>
-              <FileName>oled_wegui_tip.c</FileName>
+              <FileName>lcd_wegui_tip.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\Oled_WeGui\oled_wegui_tip.c</FilePath>
+              <FilePath>..\..\Oled_WeGui\lcd_wegui_tip.c</FilePath>
             </File>
           </Files>
         </Group>

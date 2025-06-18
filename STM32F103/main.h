@@ -3,8 +3,8 @@
 
 #include "stm32f10x.h"
 #include "stm32f10x_it.h"
-#include "OLED_driver.h"
-#include "oled_wegui_driver.h"
+#include "LCD_driver.h"
+#include "lcd_wegui_driver.h"
 
 void delay_ms(uint32_t ms);
 

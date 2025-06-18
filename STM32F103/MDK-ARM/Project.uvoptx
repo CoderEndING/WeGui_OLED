@@ -161,7 +161,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\Oled_WeGui\oled_wegui_menu_mlist.c</Filename>
+          <Filename>E:\OneDrive\MCU_Program\Library\WeGui\WeGui_OLED\Oled_WeGui\oled_wegui_menu_mlist.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\wegui\../../Oled_wegui/oled_wegui_menu_mlist.c\621</Expression>
         </Bp>
@@ -177,7 +177,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\Oled_WeGui\oled_wegui_menu_mlist.c</Filename>
+          <Filename>E:\OneDrive\MCU_Program\Library\WeGui\WeGui_OLED\Oled_WeGui\oled_wegui_menu_mlist.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\wegui\../../Oled_wegui/oled_wegui_menu_mlist.c\620</Expression>
         </Bp>
@@ -193,7 +193,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\Oled_Driver\oled_driver.c</Filename>
+          <Filename>E:\OneDrive\MCU_Program\Library\WeGui\WeGui_OLED\Oled_Driver\oled_driver.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\wegui\../../Oled_Driver/oled_driver.c\1313</Expression>
         </Bp>
@@ -782,20 +782,20 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Oled_Port\oled_wegui_Config.h</PathWithFileName>
-      <FilenameWithoutPath>oled_wegui_Config.h</FilenameWithoutPath>
+      <PathWithFileName>..\Oled_Port\lcd_wegui_Config.h</PathWithFileName>
+      <FilenameWithoutPath>lcd_wegui_Config.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>5</GroupNumber>
       <FileNumber>38</FileNumber>
-      <FileType>5</FileType>
+      <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Oled_Port\stm32f103_wegui_port.h</PathWithFileName>
-      <FilenameWithoutPath>stm32f103_wegui_port.h</FilenameWithoutPath>
+      <PathWithFileName>..\Oled_Port\stm32f103_wegui_6key_port.c</PathWithFileName>
+      <FilenameWithoutPath>stm32f103_wegui_6key_port.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -806,8 +806,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Oled_Port\stm32f103_wegui_port.c</PathWithFileName>
-      <FilenameWithoutPath>stm32f103_wegui_port.c</FilenameWithoutPath>
+      <PathWithFileName>..\Oled_Port\stm32f103_wegui_4key_port.c</PathWithFileName>
+      <FilenameWithoutPath>stm32f103_wegui_4key_port.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -818,8 +818,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Oled_Port\stm32f103_oled_soft_3spi_port.c</PathWithFileName>
-      <FilenameWithoutPath>stm32f103_oled_soft_3spi_port.c</FilenameWithoutPath>
+      <PathWithFileName>..\Oled_Port\stm32f103_lcd_soft_3spi_port.c</PathWithFileName>
+      <FilenameWithoutPath>stm32f103_lcd_soft_3spi_port.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -830,8 +830,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Oled_Port\stm32f103_oled_soft_4spi_port.c</PathWithFileName>
-      <FilenameWithoutPath>stm32f103_oled_soft_4spi_port.c</FilenameWithoutPath>
+      <PathWithFileName>..\Oled_Port\stm32f103_lcd_soft_4spi_port.c</PathWithFileName>
+      <FilenameWithoutPath>stm32f103_lcd_soft_4spi_port.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -842,8 +842,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Oled_Port\stm32f103_oled_hard_4spi_port.c</PathWithFileName>
-      <FilenameWithoutPath>stm32f103_oled_hard_4spi_port.c</FilenameWithoutPath>
+      <PathWithFileName>..\Oled_Port\stm32f103_lcd_hard_4spi_port.c</PathWithFileName>
+      <FilenameWithoutPath>stm32f103_lcd_hard_4spi_port.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -854,8 +854,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Oled_Port\stm32f103_oled_dma_4spi_port.c</PathWithFileName>
-      <FilenameWithoutPath>stm32f103_oled_dma_4spi_port.c</FilenameWithoutPath>
+      <PathWithFileName>..\Oled_Port\stm32f103_lcd_dma_4spi_port.c</PathWithFileName>
+      <FilenameWithoutPath>stm32f103_lcd_dma_4spi_port.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -866,8 +866,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Oled_Port\stm32f103_oled_soft_iic_port.c</PathWithFileName>
-      <FilenameWithoutPath>stm32f103_oled_soft_iic_port.c</FilenameWithoutPath>
+      <PathWithFileName>..\Oled_Port\stm32f103_lcd_soft_iic_port.c</PathWithFileName>
+      <FilenameWithoutPath>stm32f103_lcd_soft_iic_port.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -878,8 +878,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Oled_Port\stm32f103_oled_hard_iic_port.c</PathWithFileName>
-      <FilenameWithoutPath>stm32f103_oled_hard_iic_port.c</FilenameWithoutPath>
+      <PathWithFileName>..\Oled_Port\stm32f103_lcd_hard_iic_port.c</PathWithFileName>
+      <FilenameWithoutPath>stm32f103_lcd_hard_iic_port.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -910,6 +910,18 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Oled_Driver\sh1107.c</PathWithFileName>
+      <FilenameWithoutPath>sh1107.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>48</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
       <PathWithFileName>..\..\Oled_Driver\sh1115.c</PathWithFileName>
       <FilenameWithoutPath>sh1115.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
@@ -917,7 +929,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>48</FileNumber>
+      <FileNumber>49</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -929,7 +941,19 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>49</FileNumber>
+      <FileNumber>50</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Oled_Driver\ssd1312.c</PathWithFileName>
+      <FilenameWithoutPath>ssd1312.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>51</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -941,7 +965,7 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>50</FileNumber>
+      <FileNumber>52</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -953,37 +977,97 @@
     </File>
     <File>
       <GroupNumber>6</GroupNumber>
-      <FileNumber>51</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Oled_Driver\oled_driver.c</PathWithFileName>
-      <FilenameWithoutPath>oled_driver.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>6</GroupNumber>
-      <FileNumber>52</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Oled_Driver\oled_res.c</PathWithFileName>
-      <FilenameWithoutPath>oled_res.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>6</GroupNumber>
       <FileNumber>53</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Oled_Driver\ssd1327.c</PathWithFileName>
+      <FilenameWithoutPath>ssd1327.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>54</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Oled_Driver\st7735.c</PathWithFileName>
+      <FilenameWithoutPath>st7735.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>55</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Oled_Driver\st7796s.c</PathWithFileName>
+      <FilenameWithoutPath>st7796s.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>56</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Oled_Driver\st7789vw.c</PathWithFileName>
+      <FilenameWithoutPath>st7789vw.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>57</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Oled_Driver\gc9a01.c</PathWithFileName>
+      <FilenameWithoutPath>gc9a01.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>58</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Oled_Driver\lcd_driver.c</PathWithFileName>
+      <FilenameWithoutPath>lcd_driver.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>59</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Oled_Driver\lcd_res.c</PathWithFileName>
+      <FilenameWithoutPath>lcd_res.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>60</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Oled_Driver\oled_res.h</PathWithFileName>
-      <FilenameWithoutPath>oled_res.h</FilenameWithoutPath>
+      <PathWithFileName>..\..\Oled_Driver\lcd_res.h</PathWithFileName>
+      <FilenameWithoutPath>lcd_res.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -997,31 +1081,19 @@
     <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>7</GroupNumber>
-      <FileNumber>54</FileNumber>
+      <FileNumber>61</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Oled_WeGui\oled_wegui_driver.c</PathWithFileName>
-      <FilenameWithoutPath>oled_wegui_driver.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\Oled_WeGui\lcd_wegui_menu_mlist.c</PathWithFileName>
+      <FilenameWithoutPath>lcd_wegui_menu_mlist.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>7</GroupNumber>
-      <FileNumber>55</FileNumber>
-      <FileType>5</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Oled_WeGui\oled_wegui_driver.h</PathWithFileName>
-      <FilenameWithoutPath>oled_wegui_driver.h</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>7</GroupNumber>
-      <FileNumber>56</FileNumber>
+      <FileNumber>62</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1033,25 +1105,25 @@
     </File>
     <File>
       <GroupNumber>7</GroupNumber>
-      <FileNumber>57</FileNumber>
+      <FileNumber>63</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Oled_WeGui\oled_wegui_menu_mlist.c</PathWithFileName>
-      <FilenameWithoutPath>oled_wegui_menu_mlist.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\Oled_WeGui\lcd_wegui_driver.c</PathWithFileName>
+      <FilenameWithoutPath>lcd_wegui_driver.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>7</GroupNumber>
-      <FileNumber>58</FileNumber>
+      <FileNumber>64</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Oled_WeGui\oled_wegui_tip.c</PathWithFileName>
-      <FilenameWithoutPath>oled_wegui_tip.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\Oled_WeGui\lcd_wegui_tip.c</PathWithFileName>
+      <FilenameWithoutPath>lcd_wegui_tip.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

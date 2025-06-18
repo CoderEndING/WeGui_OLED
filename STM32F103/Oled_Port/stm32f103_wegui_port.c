@@ -189,10 +189,10 @@ void Wkey_Left_func(uint16_t ms_stick)
 */
 
 
-void wegui_1ms_Stick()
+void wegui_1ms_stick()
 {
-	if(wegui_1ms_stick < 65535)
-		wegui_1ms_stick++;
+	if(wegui_stick < 65535)
+		wegui_stick++;
 }
 
 void wegui_port_Init()
@@ -211,7 +211,7 @@ void wegui_port_Init()
 	Key_par_Init(&key_ok);
 	Key_par_Init(&key_back);
 	
-	wegui_1ms_stick = 0;
+	wegui_stick = 0;
 }
 
 
