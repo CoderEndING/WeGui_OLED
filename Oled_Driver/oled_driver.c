@@ -232,8 +232,8 @@ void OLED_Set_Driver_Box(uint8_t x_min ,uint8_t y_min ,uint8_t x_max,uint8_t y_m
 	oled_driver.Box.ypage_max_temp = 0;
 	while (y_max--)
 	{
-		oled_driver.Box.ypage_max_temp = oled_driver.Box.ypage_max_temp >>1;
-		oled_driver.Box.ypage_max_temp |= 0x80;
+		oled_driver.Box.ypage_max_temp = oled_driver.Box.ypage_max_temp << 1;
+		oled_driver.Box.ypage_max_temp |= 0x01;
 	}
 }
 
