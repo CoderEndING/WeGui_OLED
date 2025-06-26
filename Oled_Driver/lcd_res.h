@@ -1,5 +1,5 @@
-#ifndef _OLED_WeGui_RES_H_
-#define _OLED_WeGui_RES_H_
+#ifndef _OLED_Wegui_RES_H_
+#define _OLED_Wegui_RES_H_
 
 
 #include "stdint.h"
@@ -43,8 +43,7 @@
 
 /*
 	单字大小byte_size计算方式:
-	if(high%8==0){byte_size = width * (high / 8);}
-	else         {byte_size = width * (high/8+1);}
+	byte_size = width * (high+7 / 8);
 */
 
 

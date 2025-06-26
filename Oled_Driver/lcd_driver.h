@@ -2,7 +2,7 @@
 #define _LCD_DRIVER_H_
 
 #include "stdint.h"
-#include "lcd_WeGui_Config.h"
+#include "lcd_Wegui_Config.h"
 #include "lcd_res.h"
 
 
@@ -64,7 +64,7 @@ typedef struct oled_boxDriver//高级驱动参数
 typedef struct lcd_driver
 {
 	//----------显存----------
-	uint8_t LCD_GRAM[GRAM_YPAGE_NUM+2][SCREEN_WIDTH];
+	uint8_t LCD_GRAM[GRAM_YPAGE_NUM][SCREEN_WIDTH];
 	//--------绘画驱动--------
 	void (*Write_GRAM)(uint16_t x,uint16_t ypage,uint8_t u8_value);//普通写,显示驱动函数
 	void (*Clear_GRAM)(uint16_t x,uint16_t ypage,uint8_t u8_value);//普通清,显示驱动函数

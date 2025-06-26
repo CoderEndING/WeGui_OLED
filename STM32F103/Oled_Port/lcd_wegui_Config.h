@@ -1,15 +1,21 @@
-#ifndef LCD_WEGUI_CONFIG_H
-#define LCD_WEGUI_CONFIG_H
+#ifndef LCD_Wegui_CONFIG_H
+#define LCD_Wegui_CONFIG_H
 
 
 /*--------------------------------------------------------------
-  * WeGui : V0.1beta
+  * Wegui : V0.3beta
   * Author: KOUFU
 	* https://space.bilibili.com/526926544
-	* https://github.com/KOUFU-DIY/WeGui_OLED
+	* https://github.com/KOUFU-DIY/Wegui_OLED
 ----------------------------------------------------------------*/
-
-
+/*--------------------------------------------------------------
+  * 版本更新 : V0.3beta
+	* 1.修复多余2page的ram占用
+	* 2.修复缺少ssd1309驱动文件的问题
+  * 3.1.升级配套WeGui上位机,对应文件stm32f103_wegui_uart_port.c
+	* 3.2.增加uart电脑"录屏串流"功能, 使用上位机进行串流(串流时调试信息FPS不准确)
+	* 3.3.上位机支持模拟按键操作
+----------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 	* 暂不支持使用ARMV6编译,请使用ARMV5编译器(默认)
@@ -28,22 +34,24 @@
 //使用模拟IIC可精确控制上升和下降时间,调整合适的延迟时间,刷新率可以比硬件IIC更快
 
 //该工程支持"全屏刷新"和"动态刷新"两种刷屏方式(DMA方式强制使用全屏刷新)
+
 //"动态刷新"以牺牲一些全屏刷新速度换取普通刷新的速度, 但同时在屏幕静止时, cpu占用极低
 //刷新方式在下方通过宏定义调整切换
 
-//默认开启右下角调试状态显示,若要关闭,查找注释掉调用的WeGui_update_info(fps_time_count);
+//默认开启右下角调试状态显示,若要关闭,查找注释掉调用的Wegui_update_info(fps_time_count);
+//字库及其他资源在lcd_res,可自行使用配套工具修改裁剪多国语言字库, 随后会更新视频教程
 
-//字库及其他资源在lcd_res,可自行使用配套工具修改裁剪多国语言字库,随后会更新视频教程
 /*------------------------------------------------------------------------------------
 	* ----默认驱动接口----        ---默认按键接口---          外接ADC电位器接口 A1
 	* |--SPI--|  |--IIC--|       |OK   | A0  |确定|         (用于DEMO外部数据演示)
-	* |CS   A6|  |SDA B11|       |BACK | C15 |返回|    
-	* |DC  B11|  |SCL B10|       |UP   | B13 | 上 |    
-	* |RES B10|  |3V3 3V3|       |DOWN | B14 | 下 |    
-	* |SDA  A7|  |GND GND|       |LEFT | B15 | 左 |    
-	* |SCL  A5|                  |RIGHT| B12 | 右 |    
-	* |3V3 3V3|                                       
-	* |GND GND|               
+	* |BL   B0|  |RES  A6|       |BACK | C15 |返回|          
+	* |CS   A6|  |SDA B11|       |UP   | B13 | 上 |         板载闪烁LED  C13
+	* |DC  B11|  |SCL B10|       |DOWN | B14 | 下 |    
+	* |RES B10|  |3V3 3V3|       |LEFT | B15 | 左 |    
+	* |SDA  A7|  |GND GND|       |RIGHT| B12 | 右 |    
+	* |SCL  A5|                                       
+	* |3V3 3V3|  
+  * |GND GND|
 -------------------------------------------------------------------------------------*/
 
 
@@ -67,10 +75,9 @@
 //---------------------------2.1设定屏幕IIC地址--------------------------------
 
 #if defined(LCD_USE_HARD_IIC) || defined(LCD_USE_SOFT_IIC) || defined(LCD_USE_DMA_IIC)
-	//一般选择:0x3D/0x3C 
-	//7位0x3C => 8位0x78 (大部分默认)
-	//7位0x3D => 8位0x7A
-	#define OLED_IIC_7ADDR 0x3C 
+	#define OLED_IIC_7ADDR 0x3C //7位0x3C => 8位0x78 (大部分默认)
+	//#define OLED_IIC_7ADDR 0x3D //7位0x3D => 8位0x7A
+	 
 #endif 
 
 //-------------------------2.2设定硬件SPI时钟速率-------------------------------
@@ -79,15 +86,12 @@
 //STM32F103手册指定SPI最高设置18MHz 但也支持超频
 #define RCC_HCLK_Divx            RCC_HCLK_Div2 //HCLK时钟分频1,2,4,8,16
 #define SPI_BaudRatePrescaler_x  SPI_BaudRatePrescaler_8 //SPI分频2,4,8,16,32,64,128,256
-
 #endif
 
 
 //----------------------------3.选择刷屏方式--------------------------------
 //#define LCD_USE_FULL_REFRESH    //全屏刷新
 #define LCD_USE_DYNAMIC_REFRESH //动态刷新(建议使用)
-
-
 
 
 //----------------------------4.设定屏幕分辨率--------------------------------
@@ -137,10 +141,15 @@
 
 
 //--------------------------6.选择一个GUI菜单交互方式-----------------------------
-//#define WEGUI_USE_NONE_PORT //无交互
-#define WEGUI_USE_6KEY_PORT //6按键交互模式 "上","下","左","右","OK","BACK"
-//#define WEGUI_USE_4KEY_PORT //4按键交互模式 "上","下","左","右"
-//#define WEGUI_USE_2KEY_PORT //(暂未适配)2按键交互模式 "BACK","OK"
+//#define Wegui_USE_NONE_PORT //无交互
+//#define Wegui_USE_6KEY_PORT //6按键交互模式 "上","下","左","右","OK","BACK"
+#define Wegui_USE_4KEY_PORT //4按键交互模式 "上","下","左","右"
+//#define Wegui_USE_2KEY_PORT //(暂未适配)2按键交互模式 "BACK","OK"
+//#define Wegui_USE_EC_PORT //(暂未适配)旋转编码器
+
+//--------------------------7.启用UART(上位机功能)-----------------------------
+//#define Wegui_UART_OFF //关闭
+#define Wegui_UART_ON //启用
 
 
 
@@ -281,25 +290,35 @@
 
 
 
-#if defined WEGUI_USE_6KEY_PORT    //6键交互模式
-	#include "stm32f103_WeGui_6key_port.h"
-	#define WeGui_Interface_port_Init() do{WeGui_6key_port_Init();}while(0)
-#elif defined WEGUI_USE_4KEY_PORT    //4键交互模式
-	#include "stm32f103_WeGui_4key_port.h"
-	#define WeGui_Interface_port_Init() do{WeGui_4key_port_Init();}while(0)
-#elif defined WEGUI_USE_NONE_PORT
-	#define WeGui_Interface_port_Init() do{}while(0)
-	#define WeGui_Interface_stick(x) do{}while(0)
+#if defined Wegui_USE_6KEY_PORT    //6键交互模式
+	#include "stm32f103_Wegui_6key_port.h"
+	#define Wegui_Interface_port_Init() do{Wegui_6key_port_Init();Wegui_Uart_Port_Init();}while(0)
+#elif defined Wegui_USE_4KEY_PORT    //4键交互模式
+	#include "stm32f103_Wegui_4key_port.h"
+	#define Wegui_Interface_port_Init() do{Wegui_4key_port_Init();Wegui_Uart_Port_Init();}while(0)
+#elif defined Wegui_USE_NONE_PORT
+	#define Wegui_Interface_port_Init() do{}while(0)
+	#define Wegui_Interface_stick(x) do{}while(0)
 #endif
 		
 	
 	
 	
-	
-	
+
+
+#if defined Wegui_UART_ON
+	#include "stm32f103_Wegui_uart_port.h"
+#else //defined Wegui_UART_OFF
+	#define Wegui_Uart_Port_Init() do{}while(0) //防止编译错误
+	#define Wegui_uart_rx_stick(stick) do{}while(0) //防止编译错误
+#endif
 	
 
 	
+	
+	
+	
+#include "lcd_wegui_menu_app.h"
 		
 	
 	

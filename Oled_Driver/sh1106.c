@@ -1,5 +1,5 @@
 #include "sh1106.h"
-#include "lcd_WeGui_driver.h"
+#include "lcd_Wegui_driver.h"
 
 
 

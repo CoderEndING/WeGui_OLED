@@ -1,8 +1,8 @@
-#include "lcd_WeGui_menu_mlist.h"
+#include "lcd_Wegui_menu_mlist.h"
 
 mList_par_t mList_par;
 
-void WeGui_mList_Init()
+void Wegui_mList_Init()
 {
 	uint8_t max=0;
 	if(lcd_driver.fonts_ASCII != 0x00)
@@ -39,7 +39,7 @@ void WeGui_mList_Init()
 	mList_par.scrool_timer = 0;
 	mList_par.scroll_y_offset_save = 0;
 }
-void WeGui_show_mList(uint16_t farmes)
+void Wegui_show_mList(uint16_t farmes)
 {
 	#define LINE0_START_X_SCAPE 3  //标题位置
 	#define LINE1_START_X_SCAPE 10 //菜单位置
@@ -69,7 +69,7 @@ void WeGui_show_mList(uint16_t farmes)
 	
 	uint8_t id_min=(mList_par.list_y_offset_cur + mList_par.list_y_scape-mList_par.list_font_high)/mList_par.list_y_scape;
 	
-	p = WeGui.menu->subMenu;
+	p = Wegui.menu->subMenu;
 	//-----显示首行标题-----
 	if(id_min==0)
 	{
@@ -81,7 +81,7 @@ void WeGui_show_mList(uint16_t farmes)
 		{
 			temp_y = (-mList_par.list_y_offset_cur);
 		}
-		string=WeGui_get_string(WeGui.menu->titel,WeGui.setting.langauge);
+		string=Wegui_get_string(Wegui.menu->titel,Wegui.setting.langauge);
 		OLED_Draw_UTF8_String(LINE0_START_X_SCAPE,temp_y,(uint8_t*)string);
 		
 
@@ -93,9 +93,9 @@ void WeGui_show_mList(uint16_t farmes)
 															str);
 
 		/*
-		OLED_Draw_UTF8_String	(SCREEN_WIDTH - 1 - OLED_Get_UTF8_XLen((uint8_t*)"WeGui") - 2,
+		OLED_Draw_UTF8_String	(SCREEN_WIDTH - 1 - OLED_Get_UTF8_XLen((uint8_t*)"Wegui") - 2,
 															temp_y,
-															(uint8_t*)"WeGui");//LOGO
+															(uint8_t*)"Wegui");//LOGO
 		*/
 	}
 	uint16_t temp_show_id_max = 1+(mList_par.list_y_offset_cur + 
@@ -112,7 +112,7 @@ void WeGui_show_mList(uint16_t farmes)
 			if(temp_y>mList_par.list_animation_temp_y)
 				temp_y=mList_par.list_animation_temp_y;
 			OLED_Draw_Ascii(LINE1_START_X_SCAPE-lcd_driver.fonts_ASCII->width-lcd_driver.fonts_ASCII->scape - 4,temp_y,'-');
-			string=WeGui_get_string(p->discribe,WeGui.setting.langauge);
+			string=Wegui_get_string(p->discribe,Wegui.setting.langauge);
 			OLED_Draw_UTF8_String(LINE1_START_X_SCAPE,temp_y,(uint8_t*)string);
 			
 			//---若菜单是带参数设置的, 末尾显示各自参数---
@@ -185,7 +185,7 @@ void WeGui_show_mList(uint16_t farmes)
 	int16_t curr_target_x0;//光标左上角目标位置x
 	int16_t curr_target_y0;//光标左上角目标位置y
 	
-	p = WeGui.menu->subMenu;
+	p = Wegui.menu->subMenu;
 	if(p==0x00){mList_par.cursor_box_x0=0;mList_par.cursor_box_y0=0;mList_par.cursor_box_x1=0;mList_par.cursor_box_y1=0;return;}
 	
 	//调整菜单位置使得光标完全显示
@@ -202,7 +202,7 @@ void WeGui_show_mList(uint16_t farmes)
 	{
 		curr_target_x0 = LINE0_START_X_SCAPE;
 		curr_target_y0 = mList_par.list_y_offset_target;
-		string=WeGui_get_string(WeGui.menu->titel,WeGui.setting.langauge);
+		string=Wegui_get_string(Wegui.menu->titel,Wegui.setting.langauge);
 	}
 	//子菜单项光标位置
 	else
@@ -211,7 +211,7 @@ void WeGui_show_mList(uint16_t farmes)
 		curr_target_x0=LINE1_START_X_SCAPE;
 		//curr_target_y0=mList_par.list_y_scape*mList_par.cursor_id - mList_par.list_y_offset_target;
 		curr_target_y0=mList_par.list_y_scape*mList_par.cursor_id - mList_par.list_y_offset_cur;
-		string=WeGui_get_string(p->discribe,WeGui.setting.langauge);
+		string=Wegui_get_string(p->discribe,Wegui.setting.langauge);
 	}
 	
 	
@@ -257,10 +257,10 @@ void WeGui_show_mList(uint16_t farmes)
 	
 	
 	//---------------------------------------3.滚动条-------------------------------------------------
-	//#define close_scroll_time (2500/WeGui.setting.ui_fps_ms)//静止隐藏滚动条,单位ui帧
+	//#define close_scroll_time (2500/Wegui.setting.ui_fps_ms)//静止隐藏滚动条,单位ui帧
 	#define close_scroll_time (2500/16)//静止隐藏滚动条,单位ui帧
 	
-	if(WeGui.menu->subMenu==0x00)
+	if(Wegui.menu->subMenu==0x00)
 	{
 		mList_par.scroll_bar_len = SCREEN_HIGH;
 		//scroll_bar_pos=0;
@@ -318,7 +318,7 @@ void WeGui_show_mList(uint16_t farmes)
 		
 		if(width>0)
 		{
-			p = WeGui.menu->subMenu;
+			p = Wegui.menu->subMenu;
 			for(id_max=0;p!=0x00;id_max++){p=p->nextMenu;}
 			temp=((id_max)*mList_par.list_y_scape+mList_par.list_font_high+1);//菜单下拉总行程
 			if(temp < SCREEN_HIGH)
@@ -344,7 +344,7 @@ void WeGui_show_mList(uint16_t farmes)
 
 
 //光标前一个
-void WeGui_mlist_cursor_Prev()
+void Wegui_mlist_cursor_Prev()
 {
 	if(mList_par.cursor_id > 0)
 	{
@@ -354,10 +354,10 @@ void WeGui_mlist_cursor_Prev()
 	}
 }
 //光标下一个
-void WeGui_mlist_cursor_Next()
+void Wegui_mlist_cursor_Next()
 {
 		//当前光标位置 < 子菜单总数量
-	if(mList_par.cursor_id < Get_submenu_sum(WeGui.menu))
+	if(mList_par.cursor_id < Get_submenu_sum(Wegui.menu))
 	{
 		//菜单光标加1
 		mList_par.cursor_id++;
@@ -366,28 +366,28 @@ void WeGui_mlist_cursor_Next()
 }
 
 //进入光标位置菜单
-void WeGui_mlist_Enter_cursor()
+void Wegui_mlist_Enter_cursor()
 {
 	menu_t *p;
 	//--------------光标在标题处返回父菜单----------------
 	if(mList_par.cursor_id==0)
 	{
 		//检测是否存在该父菜单
-		p=WeGui.menu->fatherMenu;
+		p=Wegui.menu->fatherMenu;
 		if(p==0x00){mList_par.cursor_id=0;mList_par.list_y_offset_target=0;return;}//没有菜单
 		//进入菜单
-		WeGui_enter_menu(p);
+		Wegui_enter_menu(p);
 		//光标
-		//if(WeGui.menu->subMenu!=0x00){mList_par.cursor_id=1;}
-		mList_par.cursor_id = WeGui.menu->history_cursor_id;//光标历史记录
-		mList_par.list_y_offset_target = WeGui.menu->history_pos;//位置历史记录
+		//if(Wegui.menu->subMenu!=0x00){mList_par.cursor_id=1;}
+		mList_par.cursor_id = Wegui.menu->history_cursor_id;//光标历史记录
+		mList_par.list_y_offset_target = Wegui.menu->history_pos;//位置历史记录
 	}
 	//--------------光标在菜单处,进入菜单----------------
 	else
 	{
 		uint8_t id;
 		//检测是否存在子菜单
-		p=WeGui.menu->subMenu;
+		p=Wegui.menu->subMenu;
 		if(p==0x00){return;}
 		//检测是否存在光标所处的菜单
 		for(id=0;(id+1)<mList_par.cursor_id;id++){p=p->nextMenu;if(p==0x00){return;}};
@@ -396,13 +396,16 @@ void WeGui_mlist_Enter_cursor()
 			case wMessage:
 			case wSlider:
 			{
-				WeGui_enter_menu(p);
+				Wegui_enter_menu(p);
 			}break;
 			case mList:
+			{
+				Wegui_enter_menu(p);
+				if(Wegui.menu->subMenu!=0x00){mList_par.cursor_id=1;}
+			}break;
 			case mPorgram:
 			{
-				WeGui_enter_menu(p);
-				if(WeGui.menu->subMenu!=0x00){mList_par.cursor_id=1;}
+				Wegui_enter_menu(p);
 			}break;
 			case wCheckBox:
 			{
@@ -428,17 +431,17 @@ void WeGui_mlist_Enter_cursor()
 }
 
 //返回上一级菜单
-void WeGui_mlist_Back_menu()
+void Wegui_mlist_Back_menu()
 {
 	menu_t *p;
 	//--------------返回父菜单----------------
 	//检测是否存在该父菜单
-	p=WeGui.menu->fatherMenu;
+	p=Wegui.menu->fatherMenu;
 	if(p==0x00){mList_par.cursor_id=0;mList_par.list_y_offset_target=0;return;}//没有父菜单
 	//进入父菜单
-	WeGui_enter_menu(p);
+	Wegui_enter_menu(p);
 	//光标
 	
-	mList_par.cursor_id = WeGui.menu->history_cursor_id;//光标历史记录
-	mList_par.list_y_offset_target = WeGui.menu->history_pos;//位置历史记录
+	mList_par.cursor_id = Wegui.menu->history_cursor_id;//光标历史记录
+	mList_par.list_y_offset_target = Wegui.menu->history_pos;//位置历史记录
 }

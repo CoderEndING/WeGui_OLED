@@ -1,5 +1,5 @@
 #include "st7735.h"
-#include "lcd_WeGui_driver.h"
+#include "lcd_Wegui_driver.h"
 
 
 void ST7735_Set_Addr(uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2)
@@ -113,6 +113,8 @@ void ST7735_Clear()//清除IC显示缓存
 		LCD_Send_1Dat(0x00);LCD_Send_1Dat(0x00);
 	}
 }
+
+
 
 //void ST7735_Init()
 //{

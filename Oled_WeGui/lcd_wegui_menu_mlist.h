@@ -1,8 +1,8 @@
-#ifndef LCD_WEGUI_MENU_MLIST_H
-#define LCD_WEGUI_MENU_MLIST_H
+#ifndef LCD_Wegui_MENU_MLIST_H
+#define LCD_Wegui_MENU_MLIST_H
 
 
-#include "lcd_WeGui_driver.h"
+#include "lcd_Wegui_driver.h"
 
 typedef struct mList_par
 {
@@ -32,20 +32,20 @@ typedef struct mList_par
 
 
 //返回上一级菜单
-void WeGui_mlist_Back_menu(void);
+void Wegui_mlist_Back_menu(void);
 //进入光标位置菜单
-void WeGui_mlist_Enter_cursor(void);
+void Wegui_mlist_Enter_cursor(void);
 //光标前一个
-void WeGui_mlist_cursor_Prev(void);
+void Wegui_mlist_cursor_Prev(void);
 //光标下一个
-void WeGui_mlist_cursor_Next(void);
+void Wegui_mlist_cursor_Next(void);
 
 
 
 //初始化
-void WeGui_mList_Init(void);
+void Wegui_mList_Init(void);
 //显示驱动
-void WeGui_show_mList(uint16_t farmes);
+void Wegui_show_mList(uint16_t farmes);
 
 
 

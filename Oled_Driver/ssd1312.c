@@ -1,5 +1,5 @@
 #include "SSD1312.h"
-#include "lcd_WeGui_driver.h"
+#include "lcd_Wegui_driver.h"
 
 
 

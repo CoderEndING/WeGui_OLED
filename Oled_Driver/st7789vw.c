@@ -1,4 +1,4 @@
-#include "lcd_WeGui_driver.h"
+#include "lcd_Wegui_driver.h"
 #include "st7789vw.h"
 
 

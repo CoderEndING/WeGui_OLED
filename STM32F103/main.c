@@ -70,7 +70,7 @@ void LED_Func()
 
 /*--------------------------------------------------------------
 	* 暂不支持使用ARMV6编译,请使用ARMV5编译器
-  * 修改oled_wegui_Config.h即可快速上手点屏
+  * 修改oled_Wegui_Config.h即可快速上手点屏
 ----------------------------------------------------------------*/
 int main(void)
 {
@@ -80,13 +80,13 @@ int main(void)
 	lcd_driver_Init();
 	
 	//本框架Wegui部分为图形动画ui,处理多级菜单,过度动画等
-	OLED_WeGui_Init();
+	OLED_Wegui_Init();
 
 	sys1ms_stick = 0;
-	
+
 	while (1)
 	{
-		WeGui_loop_func();//wegui循环驱动
+		Wegui_loop_func();//Wegui循环驱动
 		
 		if(sys1ms_stick)//1ms动作
 		{
@@ -94,7 +94,7 @@ int main(void)
 			LED_Func();//闪灯 若程序阻塞,灯会闪变慢
 			if(adc_en)
 			{
-				ResADC = ADC_GetConversionValue(ADC1);//检测外部可调电阻,取其值用于控件延时
+				ResADC = ADC_GetConversionValue(ADC1);//检测外部可调电阻ADC,取其值用于控件菜单演示
 				ADC_SoftwareStartConvCmd(ADC1, ENABLE);
 			}
 		}

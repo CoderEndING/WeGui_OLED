@@ -1,4 +1,4 @@
-#include "lcd_WeGui_Config.h"
+#include "lcd_Wegui_Config.h"
 
 #ifdef LCD_USE_HARD_IIC
 

@@ -1,4 +1,4 @@
-#include "lcd_WeGui_driver.h"
+#include "lcd_Wegui_driver.h"
 #include "gc9a01.h"
 
 

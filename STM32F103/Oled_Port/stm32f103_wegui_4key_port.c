@@ -1,11 +1,12 @@
 
-#include "lcd_WeGui_Config.h"
+#include "lcd_Wegui_Config.h"
 
-#if defined(WEGUI_USE_4KEY_PORT)
-#include "stm32f103_WeGui_4key_port.h"
+#if defined(Wegui_USE_4KEY_PORT)
 
-#include "lcd_WeGui_menu_mlist.h"
-#include "lcd_WEGUI_tip.h"
+#include "stm32f103_Wegui_4key_port.h"
+#include "user_Wegui_menu.h"
+#include "lcd_Wegui_menu_mlist.h"
+#include "lcd_Wegui_tip.h"
 
 
 //-------------------------------------按键结构体-------------------------------------
@@ -88,12 +89,12 @@ void Key_par_Init(mykey_t *p)
 }
 
 
-void WeGui_4key_port_Init()//4按键接口初始化
+void Wegui_4key_port_Init()//4按键接口初始化
 {
-	WeGui_KeyLeft_IO_Init();
-	WeGui_KeyUp_IO_Init();
-	WeGui_KeyDown_IO_Init();
-	WeGui_KeyRight_IO_Init();
+	Wegui_KeyLeft_IO_Init();
+	Wegui_KeyUp_IO_Init();
+	Wegui_KeyDown_IO_Init();
+	Wegui_KeyRight_IO_Init();
 	
 	Key_par_Init(&key_left);
 	Key_par_Init(&key_right);
@@ -103,17 +104,17 @@ void WeGui_4key_port_Init()//4按键接口初始化
 
 
 
-static void WeGui_Key_Up(uint16_t ms_stick)
+static void Wegui_Key_Up(uint16_t ms_stick)
 {
 	Key_return_t i = Keysw_det(&key_up ,Bool_WKeyUp_is_Pressed(),ms_stick);
-	switch (WeGui.tip.state)
+	switch (Wegui.tip.state)
 	{
 		case FREE:break;//弹窗已退出
 		case EXITING:break;//弹窗已退出
 		case ENTERING:
 		case DISPLAYING:
 		{
-				switch (WeGui.tip.type)
+				switch (Wegui.tip.type)
 				{
 					case message:
 					{
@@ -139,7 +140,7 @@ static void WeGui_Key_Up(uint16_t ms_stick)
 				return;//优先处理弹窗,不处理菜单
 		}
 	}
-	switch(WeGui.menu->menuType)
+	switch(Wegui.menu->menuType)
 	{
 		case mList:     //列表菜单
 		{
@@ -149,13 +150,22 @@ static void WeGui_Key_Up(uint16_t ms_stick)
 				case start_long_press:        //开始长按
 				case long_press_trig:				  //连续长按
 				case long_long_press_trig:    //连续超长按
-					WeGui_mlist_cursor_Prev();
+					Wegui_mlist_cursor_Prev();
 					break;
 				default:break;
 			}
 		}break;
 		case mPorgram:  //自定义功能APP
-			break;
+			if(Wegui.menu == &m_App_UartScreen)
+			{
+				switch(i)
+				{
+					case start_short_press:       //开始短按
+						Wegui_mlist_Back_menu();;
+						break;
+					default:break;
+				}
+			}break;
 		case wCheckBox: //控件:复选框
 			break;
 		case wSlider:   //控件:滑条
@@ -169,17 +179,17 @@ static void WeGui_Key_Up(uint16_t ms_stick)
 
 
 
-static void WeGui_Key_Down(uint16_t ms_stick)
+static void Wegui_Key_Down(uint16_t ms_stick)
 {
 	Key_return_t i = Keysw_det(&key_down ,Bool_WKeyDown_is_Pressed(),ms_stick);
-	switch (WeGui.tip.state)
+	switch (Wegui.tip.state)
 	{
 		case FREE:break;//弹窗已退出
 		case EXITING:break;//弹窗已退出
 		case ENTERING:
 		case DISPLAYING:
 		{
-				switch (WeGui.tip.type)
+				switch (Wegui.tip.type)
 				{
 					case message:
 					{
@@ -196,7 +206,7 @@ static void WeGui_Key_Down(uint16_t ms_stick)
 		}
 		return;//优先处理弹窗,不处理菜单
 	}
-	switch(WeGui.menu->menuType)
+	switch(Wegui.menu->menuType)
 	{
 		case mList:     //列表菜单
 		{
@@ -206,13 +216,22 @@ static void WeGui_Key_Down(uint16_t ms_stick)
 				case start_long_press:        //开始长按
 				case long_press_trig:				  //连续长按
 				case long_long_press_trig:    //连续超长按
-					WeGui_mlist_cursor_Next();
+					Wegui_mlist_cursor_Next();
 					break;
 				default:break;
 			}
 		}break;
 		case mPorgram:  //自定义功能APP
-			break;
+			if(Wegui.menu == &m_App_UartScreen)
+			{
+				switch(i)
+				{
+					case start_short_press:       //开始短按
+						Wegui_mlist_Back_menu();;
+						break;
+					default:break;
+				}
+			}break;
 		case wCheckBox: //控件:复选框
 			break;
 		case wSlider:   //控件:滑条
@@ -228,17 +247,17 @@ static void WeGui_Key_Down(uint16_t ms_stick)
 
 
 
-static void WeGui_Key_Left(uint16_t ms_stick)
+static void Wegui_Key_Left(uint16_t ms_stick)
 {
 	Key_return_t i = Keysw_det(&key_left ,Bool_WkeyLeft_is_Pressed(),ms_stick);
-	switch (WeGui.tip.state)
+	switch (Wegui.tip.state)
 	{
 		case FREE:break;//弹窗已退出
 		case EXITING:break;//弹窗已退出
 		case ENTERING:
 		case DISPLAYING:
 		{
-				switch (WeGui.tip.type)
+				switch (Wegui.tip.type)
 				{
 					case message:
 					{
@@ -267,20 +286,29 @@ static void WeGui_Key_Left(uint16_t ms_stick)
 			return;//优先处理弹窗,不处理菜单
 		}
 	}
-	switch(WeGui.menu->menuType)
+	switch(Wegui.menu->menuType)
 	{
 		case mList:     //列表菜单
 		{
 			switch(i)
 			{
 				case start_short_press:       //开始短按
-					WeGui_mlist_Back_menu();
+					Wegui_mlist_Back_menu();
 					break;
 				default:break;
 			}
 		}break;
 		case mPorgram:  //自定义功能APP
-			break;
+			if(Wegui.menu == &m_App_UartScreen)
+			{
+				switch(i)
+				{
+					case start_short_press:       //开始短按
+						Wegui_mlist_Back_menu();;
+						break;
+					default:break;
+				}
+			}break;
 		case wCheckBox: //控件:复选框
 			break;
 		case wSlider:   //控件:滑条
@@ -296,18 +324,18 @@ static void WeGui_Key_Left(uint16_t ms_stick)
 
 
 
-static void WeGui_Key_Right(uint16_t ms_stick)
+static void Wegui_Key_Right(uint16_t ms_stick)
 {
 	Key_return_t i = Keysw_det(&key_right ,Bool_WkeyRight_is_Pressed(),ms_stick);
 	//-----------------------优先处理弹窗---------------------
-	switch (WeGui.tip.state)
+	switch (Wegui.tip.state)
 	{
 		case FREE:break;//弹窗已退出
 		case EXITING:break;//弹窗已退出
 		case ENTERING:
 		case DISPLAYING:
 		{
-				switch (WeGui.tip.type)
+				switch (Wegui.tip.type)
 				{
 					case message:
 					{
@@ -339,20 +367,29 @@ static void WeGui_Key_Right(uint16_t ms_stick)
 	
 	
 	//-----------------------再处理菜单---------------------
-	switch(WeGui.menu->menuType)
+	switch(Wegui.menu->menuType)
 	{
 		case mList:     //列表菜单
 		{
 			switch(i)
 			{
 				case start_short_press:       //开始短按
-					WeGui_mlist_Enter_cursor();
+					Wegui_mlist_Enter_cursor();
 					break;
 				default:break;
 			}
 		}break;
 		case mPorgram:  //自定义功能APP
-			break;
+			if(Wegui.menu == &m_App_UartScreen)
+			{
+				switch(i)
+				{
+					case start_short_press:       //开始短按
+						Wegui_mlist_Back_menu();;
+						break;
+					default:break;
+				}
+			}break;
 		case wCheckBox: //控件:复选框
 			break;
 		case wSlider:   //控件:滑条
@@ -363,14 +400,14 @@ static void WeGui_Key_Right(uint16_t ms_stick)
 }
 
 
-void WeGui_Interface_stick(uint16_t ms)
+void Wegui_Interface_stick(uint16_t ms)
 {
 	if(ms)
 	{
-		WeGui_Key_Up(ms)   ;
-		WeGui_Key_Down(ms) ;
-		WeGui_Key_Left(ms) ;
-		WeGui_Key_Right(ms);
+		Wegui_Key_Up(ms)   ;
+		Wegui_Key_Down(ms) ;
+		Wegui_Key_Left(ms) ;
+		Wegui_Key_Right(ms);
 	}
 }
 

@@ -1,5 +1,5 @@
 #include "SH1115.h"
-#include "lcd_WeGui_driver.h"
+#include "lcd_Wegui_driver.h"
 
 //兼容SSD1319
                                                                            

@@ -1,7 +1,7 @@
-#ifndef _USER_WEGUI_MENU_H_
-#define _USER_WEGUI_MENU_H_
+#ifndef _USER_Wegui_MENU_H_
+#define _USER_Wegui_MENU_H_
 
-#include "lcd_WeGui_driver.h"
+#include "lcd_Wegui_driver.h"
 
 extern menu_t m_main;
 extern menu_t m_App_Game;

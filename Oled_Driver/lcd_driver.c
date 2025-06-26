@@ -1049,8 +1049,8 @@ void OLED_Draw_int32(int16_t x,int16_t y,int16_t num)
 //		while((sum>1)&&(len>0))
 //		{
 //			sum=sum/10;
-//			OLED_Draw_Bitmap(x,y,WeGui_font.fonts_ascii_Width,WeGui_font.fonts_ascii_High,(uint8_t*)WeGui_font.p_fonts_ascii+WeGui_font.fonts_ascii_size*(num/sum + '0'-0x20));
-//			x += WeGui_font.fonts_ascii_Width + WeGui_font.fonts_ascii_scape;
+//			OLED_Draw_Bitmap(x,y,Wegui_font.fonts_ascii_Width,Wegui_font.fonts_ascii_High,(uint8_t*)Wegui_font.p_fonts_ascii+Wegui_font.fonts_ascii_size*(num/sum + '0'-0x20));
+//			x += Wegui_font.fonts_ascii_Width + Wegui_font.fonts_ascii_scape;
 //			num = (unsigned int16_t)num % sum;
 //			len--;
 //		}
@@ -1058,7 +1058,7 @@ void OLED_Draw_int32(int16_t x,int16_t y,int16_t num)
 //	while(len)
 //	{
 //		OLED_Draw_Ascii(x,y,' ');
-//		x += WeGui_font.fonts_ascii_Width + WeGui_font.fonts_ascii_scape;
+//		x += Wegui_font.fonts_ascii_Width + Wegui_font.fonts_ascii_scape;
 //		len--;
 //	}
 //}
@@ -1151,7 +1151,7 @@ void OLED_Draw_UTF8_String(int16_t x,int16_t y,uint8_t *p)
 			unicode_id.u8[0]=(*p<<3)|((*(p+1)>>3)&0x07);
 			unicode_id.u8[1]=(*(p+1)&0x07);
 			OLED_Draw_Chinese(x,y,unicode_id);
-			x += WeGui_font.fonts_HZ_With + WeGui_font.fonts_HZ_scape;
+			x += Wegui_font.fonts_HZ_With + Wegui_font.fonts_HZ_scape;
 			*/
 			p+=2;
 		}
@@ -1236,7 +1236,7 @@ uint16_t OLED_Get_UTF8_XLen(uint8_t *p)
 			unicode_id.u8[0]=(*p<<3)|((*(p+1)>>3)&0x07);
 			unicode_id.u8[1]=(*(p+1)&0x07);
 			OLED_Draw_Chinese(x,y,unicode_id);
-			x += WeGui_font.fonts_HZ_With + WeGui_font.fonts_HZ_scape;
+			x += Wegui_font.fonts_HZ_With + Wegui_font.fonts_HZ_scape;
 			*/
 			p+=2;
 		}
@@ -1320,27 +1320,27 @@ uint16_t OLED_Get_UTF8_YLine(uint8_t *p)
 //			if(*p == '\r')
 //			{
 //				x = x_0;
-//				y += WeGui_font.text_new_line_dist;
+//				y += Wegui_font.text_new_line_dist;
 //				p+=1;
 //				if(*p == '\n'){p+=1;}
 //			}
 //			else if(*p == '\n')
 //			{
 //				x = x_0;
-//				y += WeGui_font.text_new_line_dist;
+//				y += Wegui_font.text_new_line_dist;
 //				p+=1;
 //			}
 //			else
 //			{
 //				//自动判断换行
-//				if((SCREEN_WIDTH-1-WeGui_font.fonts_ascii_Width)<x)
+//				if((SCREEN_WIDTH-1-Wegui_font.fonts_ascii_Width)<x)
 //				{
 //					x = x_0;
-//					y += WeGui_font.text_new_line_dist;
+//					y += Wegui_font.text_new_line_dist;
 //				}
 //				
 //				OLED_Draw_Ascii(x,y,*p);
-//				x += WeGui_font.fonts_ascii_Width + WeGui_font.fonts_ascii_scape;
+//				x += Wegui_font.fonts_ascii_Width + Wegui_font.fonts_ascii_scape;
 //				p+=1;
 //			}
 //		}
@@ -1352,7 +1352,7 @@ uint16_t OLED_Get_UTF8_YLine(uint8_t *p)
 //			unicode_id.u8[0]=(*p<<3)|((*(p+1)>>3)&0x07);
 //			unicode_id.u8[1]=(*(p+1)&0x07);
 //			OLED_Draw_Chinese(x,y,unicode_id);
-//			x += WeGui_font.fonts_HZ_With + WeGui_font.fonts_HZ_scape;
+//			x += Wegui_font.fonts_HZ_With + Wegui_font.fonts_HZ_scape;
 //			*/
 //			p+=2;
 //		}
@@ -1364,14 +1364,14 @@ uint16_t OLED_Get_UTF8_YLine(uint8_t *p)
 //			unicode_id.u8[1]=(*(p+1)<<6)|((*(p+2))&0x3F);
 //			
 //			//自动判断换行
-//			if((SCREEN_WIDTH-1-WeGui_font.fonts_ascii_Width)<x)
+//			if((SCREEN_WIDTH-1-Wegui_font.fonts_ascii_Width)<x)
 //			{
 //				x = x_0;
-//				y += WeGui_font.text_new_line_dist;
+//				y += Wegui_font.text_new_line_dist;
 //			}
 //				
 //			OLED_Draw_Chinese(x,y,unicode_id);
-//			x += WeGui_font.fonts_HZ_With + WeGui_font.fonts_HZ_scape;
+//			x += Wegui_font.fonts_HZ_With + Wegui_font.fonts_HZ_scape;
 //			p+=3;
 //		}
 //		else//四字节
@@ -1445,8 +1445,7 @@ void lcd_driver_Init(void)
 	lcd_driver.fonts_ASCII = &ascii_SongTi_6X12;//默认ASCII字体
 	lcd_driver.fonts_UTF8_cut = &SongTi_UTF8_12X12;//默认UTF8字体(裁切)
 
-	
-	//lcd_driver.newline_high = lcd_driver.fonts_ASCII->high;   //文本换行距离 仅使用ASCII时候选择
+	//lcd_driver.newline_high = lcd_driver.fonts_ASCII->high;   //文本换行距离 (如果没有使用中文,可选择)
 	lcd_driver.newline_high = lcd_driver.fonts_UTF8_cut->high;//文本换行距离 (选择ASCII字体和UTF8字体最大的一个)
 	
 	//----------选择驱动模式-----------
@@ -1459,9 +1458,9 @@ void lcd_driver_Init(void)
 	OLED_Set_Driver_Box(0,0,SCREEN_WIDTH-1,SCREEN_HIGH-1);//设置"高级"驱动的"限制区域"
 	
 	//----------默认驱动模式-----------
+	
 	OLED_Clear_GRAM();
 	LCD_Refresh();
-
 }
 
 	

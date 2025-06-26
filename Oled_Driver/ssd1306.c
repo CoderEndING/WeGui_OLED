@@ -1,5 +1,5 @@
 #include "SSD1306.h"
-#include "lcd_WeGui_driver.h"
+#include "lcd_Wegui_driver.h"
 
 
 //默认8位IIC接口地址为:0x78

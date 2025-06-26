@@ -1,5 +1,5 @@
 
-#include "user_WeGui_menu.h"
+#include "user_Wegui_menu.h"
 
 
 /*************************************************
@@ -86,6 +86,12 @@ menu_t m_App_ThemeClock =
 	},
 };
 
+
+
+void Uart_Screen_App_Begin(void);
+void Uart_Screen_App_Loop(void);
+void Uart_Screen_App_Quit(void);
+void Uart_Screen_Before_Refresh(void);
 menu_t m_App_UartScreen =
 {
 	.fatherMenu=&m_main,//父菜单
@@ -101,14 +107,18 @@ menu_t m_App_UartScreen =
 		.str_zh_CN=(uint8_t *)"3.Uart显示器",//中文描述
 	  .str_en_US=(uint8_t *)"3.Uart screen",//英文描述
 	},
-	.menuType=mList,//菜单类型
-	.menuPar.mList_Par =
+	.menuType=mPorgram,//菜单类型
+	.menuPar.mPorgram_Par=
 	{
-		.begin_fun=0x00,//菜单进入 执行一次
-		.loop_fun=0x00, //菜单功能 持续执行
-		.quit_fun=0x00, //菜单退出 执行一次
-	},
+		.begin_fun=Uart_Screen_App_Begin,//菜单进入 执行一次
+		.loop_fun=Uart_Screen_App_Loop, //菜单功能 持续执行
+		.quit_fun=Uart_Screen_App_Quit, //菜单退出 执行一次
+		.before_refresh_fun = Uart_Screen_Before_Refresh//刷新屏幕前 执行一次
+	}
 };
+
+
+
 
 menu_t m_App_Uart_Debuger =
 {
@@ -781,7 +791,7 @@ menu_t m_Setting_Langauge_Chinese =
 	
 };
 //-------------------m.Setting.Display显示------------------------
-void update_WeGui_screen_brightness(void);
+void update_Wegui_screen_brightness(void);
 menu_t m_Setting_Display_Brightness =
 {
 	.fatherMenu=&m_Setting_Display,//父菜单
@@ -801,9 +811,9 @@ menu_t m_Setting_Display_Brightness =
 	.menuPar.wSliderTip_Par =
 	{
 		.Push_tip_func=0x00,                                //控件进入 执行一次
-		.Change_Value_func=update_WeGui_screen_brightness,  //值被修改 执行一次
+		.Change_Value_func=update_Wegui_screen_brightness,  //值被修改 执行一次
 		.End_tip_func=0x00,                                 //控件退出 执行一次
-		.pstr = &WeGui.setting.brightness,
+		.pstr = &Wegui.setting.brightness,
 		.min = 0,
 		.max = 255,
 	},
@@ -831,7 +841,7 @@ menu_t m_Setting_Display_ScreenFPS =
 		.Push_tip_func=0x00,      //控件进入 执行一次
 		.Change_Value_func=0x00,  //值被修改 执行一次
 		.End_tip_func=0x00,       //控件退出 执行一次
-		.pstr = &WeGui.setting.screen_fps_ms,
+		.pstr = &Wegui.setting.screen_fps_ms,
 		.min = 1,
 		.max = 100,
 	},
@@ -859,7 +869,7 @@ menu_t m_Setting_UI_Speed =
 		.Push_tip_func=0x00,      //控件进入 执行一次
 		.Change_Value_func=0x00,  //值被修改 执行一次
 		.End_tip_func=0x00,       //控件退出 执行一次
-		.pstr = &WeGui.setting.ui_fps_ms,
+		.pstr = &Wegui.setting.ui_fps_ms,
 		.min = 1,
 		.max = 100,
 	},
