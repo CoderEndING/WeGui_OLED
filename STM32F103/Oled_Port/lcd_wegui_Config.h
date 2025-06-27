@@ -47,11 +47,11 @@
 	* |BL   B0|  |RES  A6|       |BACK | C15 |返回|          
 	* |CS   A6|  |SDA B11|       |UP   | B13 | 上 |         板载闪烁LED  C13
 	* |DC  B11|  |SCL B10|       |DOWN | B14 | 下 |    
-	* |RES B10|  |3V3 3V3|       |LEFT | B15 | 左 |    
-	* |SDA  A7|  |GND GND|       |RIGHT| B12 | 右 |    
+	* |RES B10|  |3V3 3V3|       |LEFT | B15 | 左 |         UART_RX  A3 
+	* |SDA  A7|  |GND GND|       |RIGHT| B12 | 右 |         UART_TX  A2
 	* |SCL  A5|                                       
 	* |3V3 3V3|  
-  * |GND GND|
+	* |GND GND|
 -------------------------------------------------------------------------------------*/
 
 
